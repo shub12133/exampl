@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <!--<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+#<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Auto Insurance - CLV prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <label for="Response">1. Response</label>
+    <select id="Coverage" name="Coverage">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+    <br>
+    <label for="EmploymentStatus">2. EmploymentStatus</label>
+    <select id="EmploymentStatus" name="EmploymentStatus">
+      <option value="0">Disabled</option>
+      <option value="1">Employed</option>
+      <option value="2">Medical Leave</option>
+      <option value="3">Retired</option>
+      <option value="4">Unemployed</option>
+    </select>
+    <br>
+    	3. Monthly Premium Auto: <input type="text" name="Monthly Premium Auto" placeholder="Monthly Premium Auto" required="required" />
+      <br>
+      4. Number of Open Complaints [0-5]: <input type="text" name="Number of Open Complaints" placeholder="Number of Open Complaints" required="required" />
+      <br>
+      5. Number of Policies [0-9]: <input type="text" name="Number of Policies" placeholder="Number of Policies" required="required" />
+      <br>
+      
+    <br>
+    <label for="Policy Type">6. Policy Type</label>
+    <select id="Policy Type" name="Policy Type">
+      <option value="0">Corporate Auto</option>
+      <option value="1">Personal Auto</option>
+      <option value="2">Special Auto</option>
+    </select>
+    <br>
+    
+    <label for="Renew Offer Type">7. Renew Offer Type</label>
+    <select id="Renew Offer Type" name="Renew Offer Type">
+      <option value="0">Offer1</option>
+      <option value="1">Offer2</option>
+      <option value="2">Offer3</option>
+      <option value="3">Offer4</option>
+    </select>
+    <br>
+    <label for="Vehicle Class">8. Vehicle Class</label>
+    <select id="Vehicle Class" name="Vehicle Class">
+      <option value="0">Four-Door Car</option>
+      <option value="1">Luxury Car</option>
+      <option value="2">Luxury SUV</option>
+      <option value="3">Sports Car</option>
+      <option value="4">SUV</option>
+      <option value="5">Two-Door Car</option>
+    </select>
+      <br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
