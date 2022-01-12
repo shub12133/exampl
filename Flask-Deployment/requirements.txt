@@ -29,7 +29,7 @@ modulegraph==0.10.4
 numpy==1.16.6
 pandas==0.24.2
 pathlib2==2.3.5
-pipenv==2020.6.2
+pipenv==2022.1.8
 py2app==0.7.3
 pycparser==2.19
 pyobjc-core==2.5.1
